@@ -1,0 +1,31 @@
+<section class="mt-4">
+    <h2 class="text-center mb-4">Cartelera de La Claqueta</h2>
+    
+    <div class="row">
+        <?php foreach($peliculas as $pelicula): ?>
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="<?php echo $pelicula->imagen; ?>" class="card-img-top" alt="<?php echo $pelicula->titulo; ?>" style="height: 300px; object-fit: cover;">
+                    
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold"><?php echo $pelicula->titulo; ?></h5>
+                        
+                        <p class="card-text mb-1">
+                            <span class="badge bg-info text-dark"><?php echo $pelicula->nombre_categoria; ?></span>
+                        </p>
+                        
+                        <p class="card-text text-muted small">
+                            <strong>Director:</strong> <?php echo $pelicula->director; ?>
+                        </p>
+                        
+                        <p class="card-text flex-grow-1">
+                            <?php echo substr($pelicula->resenia, 0, 100); ?>...
+                        </p>
+                        
+                        <a href="pelicula/<?php echo $pelicula->id_pelicula; ?>" class="btn btn-primary mt-auto">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
