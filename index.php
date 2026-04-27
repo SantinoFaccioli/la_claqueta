@@ -7,7 +7,7 @@ if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
 
-$controller = new PeliculaController();
+$controller = new ProductosController();
 
 if ($action == 'home') {
     $controller->showHome();
