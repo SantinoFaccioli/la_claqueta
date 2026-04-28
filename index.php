@@ -25,6 +25,11 @@ if (!empty($_GET['action'])) {
 
         break;
 
+        case 'actualizar-categoria':
+        $controller = new CategoriaController();
+        $controller->updateCategoria();
+    break;
+
         case 'admin-categorias':
 
              $controller = new CategoriaController();
