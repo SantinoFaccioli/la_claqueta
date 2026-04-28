@@ -24,15 +24,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria`
---
+-- Estruc
 
 CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
+  `imagen` varchar(255) DEFAULT NULL, 
   `descripcion` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
