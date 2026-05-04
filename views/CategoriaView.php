@@ -52,11 +52,14 @@ class CategoriaView {
     }
 
     public function showCategorias($categorias) {
-        foreach ($categorias as $cat) {
+        /*foreach ($categorias as $cat) {
             echo "<div>
                     <h3>{$cat->nombre}</h3>
                     <img src='{$cat->imagen}' width='200'>
                   </div>";
-        }
+        }*/
+        require_once 'views/templates/layout/header.phtml';
+        require_once 'views/templates/listadoCategorias.phtml';
+        require_once 'views/templates/layout/footer.phtml';
     }
 }

@@ -19,5 +19,14 @@
 
         }
 
+        function mostrarPelicula ($peli_id){
+            if (is_numeric($peli_id)) {
+                $pelicula= $this ->model ->traerPelicula($peli_id);
+                $this->view->verPelicula($pelicula);  
+            }else{
+                echo('todo fallo :(');
+            }
+        }
+
     }
 
