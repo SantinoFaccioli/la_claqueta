@@ -1,0 +1,55 @@
+<?php require 'views/templates/layout/header.phtml'; ?>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Panel de Administración: Categorías</h2>
+
+    <div class="card shadow-sm mb-5">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Agregar Nueva Categoría</h4>
+        </div>
+        <div class="card-body">
+            <form action="<?= BASE_URL ?>insertar-categoria" method="POST" class="row g-3">
+                <div class="col-md-4">
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="descripcion" class="form-control" placeholder="Descripción" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" name="imagen" class="form-control" placeholder="URL de la imagen">
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-success w-100">Añadir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-responsive shadow-sm">
+        <table class="table table-hover align-middle bg-white">
+            <thead class="table-dark">
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($categorias as $cat): ?>
+                <tr>
+                    <td><img src="<?= $cat->imagen ?>" width="60" class="rounded shadow-sm"></td>
+                    <td class="fw-bold"><?= $cat->nombre ?></td>
+                    <td><?= $cat->descripcion ?></td>
+                    <td class="text-center">
+                        <a href="<?= BASE_URL ?>editar-categoria/<?= $cat->id_categoria ?>" class="btn btn-sm btn-outline-warning">Editar</a>
+                        <a href="<?= BASE_URL ?>eliminar-categoria/<?= $cat->id_categoria ?>" class="btn btn-sm btn-outline-danger">Eliminar</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<?php require 'views/templates/layout/footer.phtml'; ?>

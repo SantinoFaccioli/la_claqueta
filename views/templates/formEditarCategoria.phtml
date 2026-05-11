@@ -1,0 +1,39 @@
+<?php require 'views/templates/layout/header.phtml'; ?>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Editar Categoría</h2>
+
+    <form action="<?= BASE_URL ?>actualizar-categoria" method="POST" class="card p-4 shadow-sm">
+
+        <input type="hidden" name="id_categoria" value="<?= $categoria->id_categoria ?>">
+
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" name="nombre" class="form-control"
+                   value="<?= $categoria->nombre ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <input type="text" name="descripcion" class="form-control"
+                   value="<?= $categoria->descripcion ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Imagen (URL)</label>
+            <input type="text" name="imagen" class="form-control"
+                   value="<?= $categoria->imagen ?>">
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Guardar cambios
+        </button>
+
+        <a href="<?= BASE_URL ?>admin-categorias" class="btn btn-secondary">
+            Cancelar
+        </a>
+
+    </form>
+</div>
+
+<?php require 'views/templates/layout/footer.phtml'; ?>

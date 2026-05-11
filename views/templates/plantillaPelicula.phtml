@@ -1,0 +1,35 @@
+<section class="mt-4 mb-5">
+
+    <div class="card shadow-sm">
+        <div class="row g-0">
+            <div class="col-md-5">
+                <img src="<?php echo $pelicula->imagen; ?>" 
+                     class="img-fluid rounded-start w-100 h-100" 
+                     alt="<?php echo $pelicula->titulo; ?>" 
+                     style="object-fit: cover; min-height: 450px;">
+            </div>
+
+            <div class="col-md-7 d-flex flex-column">
+                <div class="card-body p-4 d-flex flex-column h-100">
+                    <h1 class="card-title fw-bold text-dark mb-3"><?php echo $pelicula->titulo; ?></h1>
+                    
+                    <div class="mb-3">
+                        <span class="badge bg-info text-dark fs-6"><?php echo $pelicula->nombre_categoria; ?></span>
+                        <span class="badge bg-secondary fs-6">Estreno: <?php echo $pelicula->estreno; ?></span>
+                    </div>
+
+                    <h5 class="text-muted mb-4"><strong>Director:</strong> <?php echo $pelicula->director; ?></h5>
+
+                    <hr>
+
+                    <div class="mt-2 flex-grow-1">
+                        <h4 class="fw-bold mb-3">Reseña</h4>
+                        <p class="card-text fs-5 text-secondary" style="line-height: 1.6; text-align: justify;">
+                            <?php echo nl2br($pelicula->resenia); ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
