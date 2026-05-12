@@ -6,9 +6,9 @@ class CategoriaView {
      * Muestra el listado público de categorías (lo que ve cualquier usuario).
      */
     public function showCategorias($categorias) {
-        // No hace falta poner el header y footer acá si ya los pusiste 
-        // adentro del archivo listadoCategorias.phtml
+        require_once 'views/templates/layout/header.phtml';
         require 'views/templates/listadoCategorias.phtml';
+        require_once 'views/templates/layout/footer.phtml';
     }
 
     /**

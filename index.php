@@ -2,6 +2,7 @@
 session_start();
 require_once 'controllers/peliculasController.php';
 require_once 'controllers/CategoriaController.php';
+require_once 'controllers/adminController.php';
 
 $action = 'peliculas'; 
 
@@ -34,6 +35,13 @@ if (!empty($_GET['action'])) {
 
         break;
 
+        case 'login' :
+
+                $controller = new adminController();
+                $controller->FormularioLogin();
+
+        break;
+        
         case 'actualizar-categoria':
         $controller = new CategoriaController();
         $controller->updateCategoria();
