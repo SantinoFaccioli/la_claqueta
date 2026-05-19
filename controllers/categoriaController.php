@@ -11,15 +11,6 @@ class CategoriaController {
         $this->view = new CategoriaView();
     }
 
-   private function checkLogin() { //queda hecho para cuando hagas el iniciar sesion supongo que habra que cambiarle cosas igual 
-
-        if (!isset($_SESSION['USER_ID'])) {
-
-            header("Location: " . BASE_URL . "login");
-            die();
-        }
-    }
-
     public function showCategorias() {
         $categorias = $this->model->getAll();
         $this->view->showCategorias($categorias);
@@ -32,7 +23,6 @@ class CategoriaController {
     }
 
     public function addCategoria() {
-        $this->checkLogin();
 
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['descripcion']; 
@@ -47,13 +37,13 @@ class CategoriaController {
     }
 
     public function deleteCategoria($id) {
-        $this->checkLogin();
+        //$this->checkLogin();
         $this->model->delete($id);
         header("Location: " . BASE_URL . "admin-categorias");
     }
 
     public function editCategoria($id) {
-        $this->checkLogin();
+       // $this->checkLogin();
         $categoria = $this->model->get($id); 
         if ($categoria) {
             $this->view->showEditForm($categoria);
@@ -63,7 +53,7 @@ class CategoriaController {
     }
 
     public function updateCategoria() {
-        $this->checkLogin();
+       // $this->checkLogin();
         $id = $_POST['id_categoria'];
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['descripcion']; 
@@ -77,11 +67,5 @@ class CategoriaController {
         }
     }
 
-    public function logout() {
 
-        session_destroy();
-
-    header("Location: " . BASE_URL);
-
-}
 }

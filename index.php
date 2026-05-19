@@ -30,18 +30,25 @@ if (!empty($_GET['action'])) {
         break;    
 
         case 'categorias':
-             $controller = new CategoriaController(); 
-             $controller->showCategorias();
+            $controller = new CategoriaController(); 
+            $controller->showCategorias();
 
         break;
 
         case 'login' :
 
-                $controller = new adminController();
-                $controller->FormularioLogin();
+            $controller = new adminController();
+            $controller->FormularioLogin();
 
         break;
-        
+
+        /*case 'auth':
+
+            $controller = new adminController();
+            $controller-> login();
+
+            break;
+        */
         case 'actualizar-categoria':
         $controller = new CategoriaController();
         $controller->updateCategoria();
@@ -77,7 +84,7 @@ if (!empty($_GET['action'])) {
 
         case 'logout':
 
-            $controller = new CategoriaController();
+            $controller = new adminController();
             $controller->logout();
 
             break; 

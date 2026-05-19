@@ -11,7 +11,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="home">🎬 La Claqueta</a>
+                <a class="navbar-brand" href=<?php echo BASE_URL ?> >🎬 La Claqueta </a>
                 
                 <button class="navbar-toggler" type="button" id="btn-menu">
                     <span class="navbar-toggler-icon"></span>
@@ -25,11 +25,29 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo BASE_URL; ?>categorias">Categorías</a>
                         </li>
+                        
+                            <?php if(isset($_SESSION['USER_ID'])): ?>
+                            <li class="nav-item">
+                                <a class="nav-link text-warning" href="<?php echo BASE_URL ?>agregar">Agregar Película</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-warning" href="<?php echo BASE_URL ?>administrar">Gestionar Categorías</a>
+                            </li>
+                        <?php endif; ?>
+
+
+
                     </ul>
-                    <span class="navbar-text">
-                        <a class="btn btn-outline-info" href="<?php echo BASE_URL; ?>login">Login Admin</a>
-                        <a class="btn btn-outline-danger ms-2" href="<?php echo BASE_URL; ?>logout">Logout </a>
-                    </span>
+                    <div class="d-flex align-items-center">
+                        <?php if(isset($_SESSION['USER_ID'])): ?>
+                            <span class="navbar-text me-3 text-white">
+                                Bienvenido, <strong><?php echo $_SESSION['USER_NAME']; ?></strong>
+                            </span>
+                            <a href="<?php echo BASE_URL ?>logout" class="btn btn-outline-danger btn-sm">Cerrar Sesión</a>
+                        <?php else: ?>
+                            <a href="<?php echo BASE_URL ?>login" class="btn btn-outline-info btn-sm">Login Admin</a>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </nav>
