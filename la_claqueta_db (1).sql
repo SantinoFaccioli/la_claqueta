@@ -1,32 +1,4 @@
-<?php
-class DbConnect {
-
-    protected $db;
-
-    public function __construct() {
-        
-        $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8';
-
-        try {
-    
-            $this->db = new PDO($dsn, DB_USER, DB_PASS);
-            
-            
-            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        } catch (PDOException $e) {
-            die("Error de conexión a la Base de Datos: " . $e->getMessage());
-        }
-
-        $this->_deploy();
-    }
-
-    private function _deploy() {
-        $query = $this->db->query('SHOW TABLES');
-        $tables = $query->fetchAll();
-        if(count($tables) == 0) {
-             $sql =<<<'END'
-        -- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
@@ -176,9 +148,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-END;
-            $this->db->query($sql);
-        }
-    }
-
-}
